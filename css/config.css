@@ -1,0 +1,580 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;1,400;1,700&display=swap");
+
+:root {
+    --main: #6b69d6;
+    --color: #c0c0c0;
+    --background: #101010;
+    --green: #43b581;
+    --red: #f04747;
+    --yellow: #faa61a;
+    --blue: #00a9ff;
+    --grey: #7a838e;
+    --white: #1c1e26;
+    --title: #eeecec;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font:
+        15px "Ubuntu",
+        system-ui;
+    background: var(--background);
+    color: var(--color);
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-rows: auto 6fr;
+    grid-template-areas:
+        "t g"
+        "n c";
+}
+
+#title {
+    z-index: 1;
+    grid-area: t;
+    display: flex;
+    background: var(--white);
+    user-select: none;
+}
+
+#title img {
+    width: 50px;
+    height: 50px;
+    margin: auto 6px auto 16px;
+}
+
+#title h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto auto auto;
+    color: var(--title);
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+#guild {
+    z-index: 0;
+    grid-area: g;
+    display: flex;
+    padding-bottom: 5px;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+    background: var(--white);
+}
+
+#guild img {
+    width: 65px;
+    height: 65px;
+    margin: 5px 5px 0 10px;
+    border-radius: 5px;
+}
+
+#guild h1,
+#guild h4 {
+    margin: 5px 0;
+}
+
+#guild h1 {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--title);
+    margin-bottom: -10px;
+}
+
+#guild h4 {
+    font-family: "Roboto Condensed", system-ui;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--grey);
+    margin: 8px 0 0 2px;
+}
+
+#nav {
+    z-index: 1;
+    width: 100%;
+    min-width: 200px;
+    grid-area: n;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+#nav nav {
+    width: 100%;
+}
+
+#nav nav div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 5px;
+    transition-duration: 200ms;
+    border: 2px solid var(--white);
+}
+
+#nav hr {
+    width: 0%;
+    height: 1px;
+    background: var(--title);
+    border: none;
+    margin: 10px;
+    transition-duration: 500ms;
+}
+
+#nav a,
+#nav a span {
+    text-decoration: none;
+    color: var(--title);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-family: "Roboto Condensed", system-ui;
+    transition-duration: 200ms;
+    white-space: nowrap;
+}
+
+#nav div:hover span,
+#nav div.active span {
+    color: var(--main);
+    font-weight: bold;
+}
+
+#nav div:hover hr,
+#nav div.active hr {
+    width: 100%;
+}
+
+#nav div.active {
+    border: 2px solid var(--main);
+}
+
+#content {
+    grid-area: c;
+    height: calc(100vh - 75px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#content .title,
+#content .subtitle {
+    display: flex;
+}
+
+#content .title h1,
+#content .subtitle h2 {
+    font-size: 40px;
+    font-family: "Roboto Condensed", system-ui;
+    margin: 10px 0;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+#content .subtitle h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: var(--grey);
+    user-select: none;
+    white-space: nowrap;
+}
+
+#content .subtitle {
+    justify-content: center;
+}
+
+#content .title hr,
+#content .subtitle hr {
+    width: 10%;
+    height: 1px;
+    background: var(--title);
+    border: none;
+    margin: auto 20px;
+}
+
+#content .subtitle hr {
+    background: var(--main);
+}
+
+#content .subcontent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px;
+}
+
+#content .subcontent > div {
+    min-height: 80px;
+}
+
+#content .subcontent > div,
+#content .subcontent > div .y,
+#content .subcontent > div .n {
+    background: var(--white);
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--white);
+    transition-duration: 200ms;
+    width: calc(calc(100% / 4) - 22px);
+}
+
+#content .subcontent > div:hover {
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+    transform: scale(1.05);
+    overflow: visible;
+}
+
+#content .subcontent div h4 {
+    font-size: 15px;
+    font-family: "Roboto Condensed", system-ui;
+    padding-top: 10px;
+    margin: 0 0 0 10px;
+    font-style: italic;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--grey);
+    user-select: none;
+    display: flex;
+}
+
+#content .subcontent div h2 {
+    font-size: 30px;
+    margin: 5px 0 0 15px;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+    color: var(--main);
+}
+
+#content .subcontent div .n,
+#content .subcontent div .y {
+    height: 30px;
+    width: 50px;
+    margin: 7px 12px;
+    border-radius: 50px;
+    background: var(--grey);
+}
+
+#content .subcontent div .n div,
+#content .subcontent div .y div {
+    background: var(--title);
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50px;
+    margin: 4px;
+}
+
+#content .subcontent div .n:after {
+    content: "+";
+    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--grey);
+    margin: -21px 5px;
+    transform: rotate(45deg);
+}
+
+#content .subcontent div .y {
+    background: var(--green);
+}
+
+#content .subcontent div .y div {
+    margin: 4px 23px;
+}
+
+#content .subcontent div .y:after {
+    content: "L";
+    display: block;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--green);
+    transform: rotate(45deg) scaleX(-1);
+    margin: -36px 6px;
+}
+
+#content .subcontent div.fixer {
+    pointer-events: none;
+    opacity: 0;
+}
+
+#content .subcontent div.channel:hover,
+#content .subcontent div.component:hover,
+#content .subcontent div.role:hover,
+#content .subcontent div.user:hover {
+    border-radius: 10px 10px 0 0;
+    transform: scale(1.05) translateY(-7px);
+}
+
+#content .subcontent div .channel,
+#content .subcontent div .component,
+#content .subcontent div .role,
+#content .subcontent div .user {
+    text-transform: none;
+    font-size: 25px;
+    padding: 0 5px 3px 5px;
+    background-color: rgba(107, 105, 214, 0.3);
+    width: max-content;
+    max-width: calc(100% - 40px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 5px;
+    user-select: none;
+    overflow: h;
+}
+
+#content .subcontent div .component {
+    border-radius: 3px;
+    background: var(--grey);
+    color: var(--white);
+    font-size: 18px;
+    padding: 5px 15px;
+    display: flex;
+    cursor: pointer;
+}
+
+#content .subcontent div .component div.emoji {
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin: 3px 5px 0 -5px;
+}
+
+#content .subcontent div .component div.after:before {
+    content: "";
+    width: 7.5px;
+    height: 7.5px;
+    background: var(--grey);
+    display: block;
+    position: absolute;
+    margin: -2px 0 0 5px;
+}
+
+#content .subcontent div .component div.after {
+    margin: 4px 0 0 5px;
+    border-radius: 2px;
+    border: 2px solid var(--white);
+    background: var(--grey);
+    height: 10px;
+    width: 10px;
+}
+
+#content .subcontent div .component div.after:after {
+    content: "\279C";
+    font-size: 12px;
+    position: absolute;
+    margin: -6px 0 0 1px;
+    border-radius: 10px;
+    transform: rotate(-45deg);
+}
+
+#content .subcontent div .channel:before {
+    content: "#";
+}
+
+#content .subcontent div .role:before,
+#content .subcontent div .user:before {
+    content: "@";
+}
+
+#content .subcontent div:hover .id,
+#content .subcontent div:hover .url {
+    height: auto !important;
+    position: absolute;
+    background: var(--white);
+    width: 100%;
+    padding: 5px 0 5px 0;
+    border: 1px solid var(--white);
+    z-index: 3;
+}
+
+#content .subcontent div .url:before,
+#content .subcontent div .id:before {
+    content: "\00a0\00a0\00a0\00a0\00a0";
+}
+
+#content .subcontent div .id,
+#content .subcontent div .url {
+    height: 0px !important;
+    overflow: hidden;
+    margin: 0 -1px;
+    border-radius: 0 0 10px 10px;
+}
+
+#content .subcontent div .url a,
+#content .subcontent div .url a:visited,
+#content .subcontent div .url a:active {
+    margin-left: 5px;
+    text-transform: none;
+    text-decoration: none;
+    color: var(--main);
+}
+
+#content .subcontent div h4 div {
+    height: 18px;
+    width: 18px;
+    transition-duration: 200ms;
+    border: 3px solid var(--main);
+    border-radius: 3px;
+    margin: -4px 0 0 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition-duration: 200ms;
+}
+
+#content .subcontent div:hover h4 div {
+    opacity: 1;
+}
+
+#content .subcontent div h4 div:hover {
+    background: var(--main);
+    color: var(--white);
+}
+
+#content .subcontent div h4 div:active {
+    animation: click 0.5s;
+}
+
+@keyframes click {
+    0% {
+        background: var(--green);
+        border: 3px solid var(--green);
+        color: var(--white);
+    }
+
+    100% {
+        background: var(--main);
+        border: 3px solid var(--main);
+        color: var(--white);
+    }
+}
+
+#content .subcontent div .copyid:before {
+    content: "ID";
+    font-weight: bold;
+    margin: 2.5px;
+}
+
+#content .subcontent div .copych:before {
+    content: "#";
+    font-style: normal;
+    font-weight: bold;
+    margin: 4px;
+}
+
+#content .subcontent div .copyem:before {
+    content: "<>";
+    font-style: normal;
+    font-weight: bold;
+    margin: 2px;
+}
+
+#content .subcontent div .copybd:before {
+    content: "{..}";
+    font-style: normal;
+    font-weight: bold;
+    margin: 1px;
+    white-space: nowrap;
+}
+
+#content .subcontent div .copyur:before {
+    content: "//";
+    font-style: normal;
+    font-weight: bold;
+    margin: 4px;
+}
+
+#content .subcontent div .copyna:before,
+#content .subcontent div .copymg:before {
+    content: "*";
+    font-style: normal;
+    font-weight: bold;
+    margin: 6px;
+    line-height: 1.5;
+}
+
+#content .subcontent div .copyus:before,
+#content .subcontent div .copyro:before {
+    content: "@";
+    font-style: normal;
+    font-weight: bold;
+    margin: -1px 3px;
+}
+
+#content .subcontent div .emoji {
+    width: 33px;
+    height: 33px;
+    margin: 3px 0 0 15px;
+    border-radius: 0;
+    background-size: contain !important;
+}
+
+@media (max-width: 1000px) {
+    body {
+        display: block;
+    }
+
+    #title {
+        display: none;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    .subcontent {
+        display: block;
+    }
+
+    #content .subcontent > div {
+        width: calc(100% - 20px);
+    }
+
+    .fixer {
+        display: none;
+    }
+}
+
+#content .subcontent discord-messages {
+    border-radius: 0 0 10px 10px;
+    border: none;
+    height: calc(80px - 28px);
+    overflow: hidden;
+}
+
+.discord-message {
+    margin: 0 !important;
+}
+
+discord-action-row {
+    margin: 3px 0 -1px 10px;
+    padding: 0;
+}
+
+.discord-button {
+    margin: 0 !important;
+}
+
+.discord-embed {
+    padding: 0 0 10px 10px;
+    background: var(--white);
+    border: 1px solid var(--white);
+    margin: 10px -1px;
+    border-radius: 0 0 10px 10px;
+}
+
+.embed {
+    height: 80px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.embed:hover {
+    overflow: visible;
+}
+
+#fulfillModerationCSS h2 {
+    font-size: 15px !important;
+}
