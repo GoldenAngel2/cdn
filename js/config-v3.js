@@ -2,18 +2,18 @@
      method: "GET"
    }).catch(e => e);
    if (res instanceof Error || res.status !== 200) {
-     return null;
+     alert(`Unable to fetch the information, [${res.status}]: ${res instanceof Error ? res.message : res}`);
    }
    const json = await res.json();
    if (!json.status) {
-     return null;
+      alert(`Unable to fetch the data, [${json.status}]: ${json.message}`);
    }
    let data = null;
    try {
      data = JSON.parse(json.content);
    } catch {}
    if (!data) {
-     return null;
+      alert(`Unable to parse the data.`);
    }
 // Query selectors.
 const $ = (query, parent) => (parent || document).getElementById(query);
