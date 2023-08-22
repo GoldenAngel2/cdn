@@ -2,7 +2,8 @@
      method: "GET",
      headers: {
         "content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "null",
+        "user-agent": "Elara Settings Viewer"
      }
    }).catch(e => e);
    if (res instanceof Error || res.status !== 200) {
