@@ -1,8 +1,24 @@
+   const res = await fetch(`https://h.elara.workers.dev/documents/${window.location.pathname.split("/")[1].split("#")[0]}`, {
+     method: "GET"
+   }).catch(e => e);
+   if (res instanceof Error || res.status !== 200) {
+     return null;
+   }
+   const json = await res.json();
+   if (!json.status) {
+     return null;
+   }
+   let data = null;
+   try {
+     data = JSON.parse(json.content);
+   } catch {}
+   if (!data) {
+     return null;
+   }
 // Query selectors.
 const $ = (query, parent) => (parent || document).getElementById(query);
 const $$ = (query, parent) => (parent || document).querySelectorAll(query);
 const copy = (text) => window.navigator.clipboard.writeText(text);
-
 window.onload = () => {
     let hash = window.location.hash.split("#")?.[1];
     if (hash) $(hash).scrollIntoView({ behavior: "smooth" });
