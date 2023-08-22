@@ -1,4 +1,4 @@
-   const res = await fetch(`https://h.elara.workers.dev/documents/${window.location.pathname.split("/")[1].split("#")[0]}`, {
+   const res = await fetch(`https://haste.discordcatto.repl.co/documents/${window.location.pathname.split("/")[1].split("#")[0]}`, {
      method: "GET"
    }).catch(e => e);
    if (res instanceof Error || res.status !== 200) {
