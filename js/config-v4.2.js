@@ -1,29 +1,8 @@
-   const res = await fetch(`https://haste.discordcatto.repl.co/documents/${window.location.pathname.split("/")[1].split("#")[0]}`, {
-     method: "GET",
-     headers: {
-        "content-type": "application/json",
-        "Access-Control-Allow-Origin": "null",
-        "user-agent": "Elara Settings Viewer"
-     }
-   }).catch(e => e);
-   if (res instanceof Error || res.status !== 200) {
-     alert(`Unable to fetch the information, [${res.status}]: ${res instanceof Error ? res.message : res}`);
-   }
-   const json = await res.json();
-   if (!json.status) {
-      alert(`Unable to fetch the data, [${json.status}]: ${json.message}`);
-   }
-   let data = null;
-   try {
-     data = JSON.parse(json.content);
-   } catch {}
-   if (!data) {
-      alert(`Unable to parse the data.`);
-   }
 // Query selectors.
 const $ = (query, parent) => (parent || document).getElementById(query);
 const $$ = (query, parent) => (parent || document).querySelectorAll(query);
 const copy = (text) => window.navigator.clipboard.writeText(text);
+
 window.onload = () => {
     let hash = window.location.hash.split("#")?.[1];
     if (hash) $(hash).scrollIntoView({ behavior: "smooth" });
