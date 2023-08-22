@@ -1,5 +1,9 @@
    const res = await fetch(`https://haste.discordcatto.repl.co/documents/${window.location.pathname.split("/")[1].split("#")[0]}`, {
-     method: "GET"
+     method: "GET",
+     headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+     }
    }).catch(e => e);
    if (res instanceof Error || res.status !== 200) {
      alert(`Unable to fetch the information, [${res.status}]: ${res instanceof Error ? res.message : res}`);
