@@ -116,7 +116,12 @@ body {
     transition-duration: 200ms;
     border: 2px solid var(--white);
 }
-
+h2 .contentonly {
+    font-size: 30px;
+    margin: 5px 0 0 15px;
+    padding-bottom: 10px;
+    color: var(--main);
+}
 #nav hr {
     width: 0%;
     height: 1px;
